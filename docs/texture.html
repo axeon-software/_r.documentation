@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Downloading & Launching · GitBook</title>
+        <title>Texture · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="patching.html" />
+    <link rel="next" href="cube-texture.html" />
     
+    
+    <link rel="prev" href="camera.html" />
     
 
     </head>
@@ -89,7 +91,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -187,7 +189,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.7" data-path="texture.html">
+        <li class="chapter active" data-level="2.7" data-path="texture.html">
             
                 <a href="texture.html">
             
@@ -471,7 +473,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Downloading & Launching</a>
+        <a href="." >Texture</a>
     </h1>
 </div>
 
@@ -486,9 +488,90 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="download">Download</h1>
-<h1 id="launch">Launch</h1>
-<h1 id="tutorials">Tutorials</h1>
+                                <h1 id="textures">Textures</h1>
+<h2 id="create-texture-with-texturebase">Create texture with <strong>texture::base</strong></h2>
+<pre><code class="lang-json">[{
+     <span class="hljs-string">&quot;material1&quot;</span> : {
+            <span class="hljs-string">&quot;diffuseTexture&quot;</span> : {
+                <span class="hljs-string">&quot;texture::base&quot;</span> : {
+                     <span class="hljs-string">&quot;name&quot;</span> : <span class="hljs-string">&quot;textureTree&quot;</span>, 
+                     <span class="hljs-string">&quot;url&quot;</span> : <span class="hljs-string">&quot;textures/tree.png&quot;</span>,
+                     <span class="hljs-string">&quot;hasAlpha&quot;</span> : <span class="hljs-literal">true</span>
+                }
+            }
+        }
+}]
+</code></pre>
+<h2 id="patch-existing-texture">Patch existing texture</h2>
+<pre><code class="lang-json">[{
+     <span class="hljs-string">&quot;textureTree&quot;</span> : {
+            <span class="hljs-string">&quot;level&quot;</span> : <span class="hljs-number">0.2</span>
+        }
+}]
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>name : string</li>
+<li>url : string;</li>
+<li>noMipmap : boolean;</li>
+<li>level : number</li>
+<li>isBlocking : boolean</li>
+</ul>
+<h4 id="alpha">Alpha</h4>
+<ul>
+<li>hasAlpha : boolean</li>
+<li>getAlphaFromRGB : boolean</li>
+</ul>
+<h4 id="uv">UV</h4>
+<ul>
+<li>uOffset : number</li>
+<li>vOffset : number</li>
+<li>uScale : number</li>
+<li>vScale : number</li>
+<li>uAng : number</li>
+<li>vAng : number</li>
+<li>wAng : number</li>
+<li>wrapU : number</li>
+<li>wrapV : number</li>
+</ul>
+<h4 id="coordinates">Coordinates</h4>
+<ul>
+<li>coordinatesIndex : number</li>
+<li>coordinatesMode : <ul>
+<li>&quot;spherical&quot; or BABYLON.Texture.SPHERICAL_MODE </li>
+<li>&quot;planar&quot; or BABYLON.Texture.PLANAR_MODE </li>
+<li>&quot;cubic&quot; or BABYLON.Texture.CUBIC_MODE </li>
+<li>&quot;projection&quot; BABYLON.Texture.PROJECTION_MODE </li>
+<li>&quot;skybox&quot; or BABYLON.Texture.SKYBOX_MODE </li>
+<li>&quot;invcubic&quot; or BABYLON.Texture.INVCUBIC_MODE </li>
+<li>&quot;equirectangular&quot; or BABYLON.Texture.EQUIRECTANGULAR_MODE </li>
+<li>&quot;fixed equirectangular&quot; or  BABYLON.Texture.FIXED_EQUIRECTANGULAR_MODE</li>
+<li>&quot;fixed equirectangular mirrored&quot; or BABYLON.Texture.FIXED_EQUIRECTANGULAR_MIRRORED_MODE </li>
+</ul>
+</li>
+</ul>
+<h4 id="sampling-mode">Sampling mode</h4>
+<ul>
+<li>samplingMode : string | number;<ul>
+<li>&quot;nearest&quot; or BABYLON.Texture.NEAREST_SAMPLINGMODE </li>
+<li>&quot;bilinear&quot; or BABYLON.Texture.BILINEAR_SAMPLINGMODE </li>
+<li>&quot;trilinear&quot; or BABYLON.Texture.TRILINEAR_SAMPLINGMODE </li>
+</ul>
+</li>
+</ul>
+<h4 id="lod">LOD</h4>
+<ul>
+<li>lodLevelInAlpha : boolean</li>
+<li>lodGenerationOffset : number</li>
+<li>lodGenerationScale : number</li>
+</ul>
+<h4 id="misc">Misc</h4>
+<ul>
+<li>invertY : boolean;</li>
+<li>invertZ : boolean</li>
+<li>anisotropicFilteringLevel : number</li>
+<li>gammaSpace : boolean</li>
+</ul>
 
                                 
                                 </section>
@@ -516,8 +599,12 @@
 
             
                 
+                <a href="camera.html" class="navigation navigation-prev " aria-label="Previous page: Camera">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="patching.html" class="navigation navigation-next navigation-unique" aria-label="Next page: How to Patch ?">
+                
+                <a href="cube-texture.html" class="navigation navigation-next " aria-label="Next page: Cube Texture">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -528,7 +615,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"search":{"keywords":["download","npm","pep","launch"]},"title":"Downloading & Launching","level":"1.1","depth":1,"next":{"title":"How to Patch ?","level":"2.1","depth":1,"path":"patching.md","ref":"patching.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-11-14T08:53:26.038Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-14T09:45:54.936Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Texture","level":"2.7","depth":1,"next":{"title":"Cube Texture","level":"2.7.1","depth":2,"path":"cube-texture.md","ref":"cube-texture.md","articles":[]},"previous":{"title":"Camera","level":"2.6","depth":1,"path":"camera.md","ref":"camera.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"texture.md","mtime":"2018-01-10T09:16:13.368Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-14T09:45:54.936Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

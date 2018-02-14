@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Downloading & Launching · GitBook</title>
+        <title>FresnelParameters · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="patching.html" />
+    <link rel="next" href="reflectionProbe.html" />
     
+    
+    <link rel="prev" href="mesh.html" />
     
 
     </head>
@@ -89,7 +91,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -258,7 +260,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.10" data-path="fresnelParameters.html">
+        <li class="chapter active" data-level="2.10" data-path="fresnelParameters.html">
             
                 <a href="fresnelParameters.html">
             
@@ -471,7 +473,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Downloading & Launching</a>
+        <a href="." >FresnelParameters</a>
     </h1>
 </div>
 
@@ -486,9 +488,39 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="download">Download</h1>
-<h1 id="launch">Launch</h1>
-<h1 id="tutorials">Tutorials</h1>
+                                <h1 id="fresnelparameters">FresnelParameters</h1>
+<p>Patch or create fresnel parameters :</p>
+<ul>
+<li>diffuseFresnelParameters</li>
+<li>opacityFresnelParameters</li>
+<li>emissiveFresnelParameters</li>
+<li>refractionFresnelParameters</li>
+<li><p>reflectionFresnelParameters</p>
+</li>
+<li><p><a href="https://doc.babylonjs.com/how_to/how_to_use_fresnelparameters" target="_blank">doc.bjs.com - How to use FresnelParameters</a> </p>
+</li>
+<li><a href="http://www.babylonjs-playground.com/?19" target="_blank">playground.bjs.com - D&#xE9;mo</a></li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code class="lang-json">[{
+  <span class="hljs-string">&quot;scene.material.000&quot;</span> : {
+    <span class="hljs-string">&quot;emissiveFresnelParameters&quot;</span>: {
+        <span class="hljs-string">&quot;leftColor&quot;</span>: <span class="hljs-string">&quot;#ffffff&quot;</span>,
+        <span class="hljs-string">&quot;rightColor&quot;</span>: <span class="hljs-string">&quot;#000000&quot;</span>,
+        <span class="hljs-string">&quot;power&quot;</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">&quot;bias&quot;</span>: <span class="hljs-number">0</span>
+    }
+  }
+}]
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>isEnabled : boolean  (<em>activate/deactivate fresnel effect</em>)</li>
+<li>leftColor : <a href="colors-vectors-patching.html#colors">color</a> (<em>color used on edges</em>)</li>
+<li>rightColor :<a href="colors-vectors-patching.html#colors">color</a> (<em>define color used on center</em>)</li>
+<li>bias : number (<em>define bias applied to computed fresnel term</em>)</li>
+<li>power : number (<em>to compute exponent applied to fresnel term</em>)</li>
+</ul>
 
                                 
                                 </section>
@@ -516,8 +548,12 @@
 
             
                 
+                <a href="mesh.html" class="navigation navigation-prev " aria-label="Previous page: Mesh">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="patching.html" class="navigation navigation-next navigation-unique" aria-label="Next page: How to Patch ?">
+                
+                <a href="reflectionProbe.html" class="navigation navigation-next " aria-label="Next page: ReflectionProbe">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -528,7 +564,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"search":{"keywords":["download","npm","pep","launch"]},"title":"Downloading & Launching","level":"1.1","depth":1,"next":{"title":"How to Patch ?","level":"2.1","depth":1,"path":"patching.md","ref":"patching.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-11-14T08:53:26.038Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-14T09:45:54.936Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"FresnelParameters","level":"2.10","depth":1,"next":{"title":"ReflectionProbe","level":"2.11","depth":1,"path":"reflectionProbe.md","ref":"reflectionProbe.md","articles":[]},"previous":{"title":"Mesh","level":"2.9","depth":1,"path":"mesh.md","ref":"mesh.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"fresnelParameters.md","mtime":"2018-01-10T09:16:13.219Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-14T09:45:54.936Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

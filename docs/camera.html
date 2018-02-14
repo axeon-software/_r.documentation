@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Downloading & Launching · GitBook</title>
+        <title>Camera · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="patching.html" />
+    <link rel="next" href="texture.html" />
     
+    
+    <link rel="prev" href="multi-material.html" />
     
 
     </head>
@@ -89,7 +91,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -174,7 +176,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.6" data-path="camera.html">
+        <li class="chapter active" data-level="2.6" data-path="camera.html">
             
                 <a href="camera.html">
             
@@ -471,7 +473,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Downloading & Launching</a>
+        <a href="." >Camera</a>
     </h1>
 </div>
 
@@ -486,9 +488,35 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="download">Download</h1>
-<h1 id="launch">Launch</h1>
-<h1 id="tutorials">Tutorials</h1>
+                                <h1 id="camera">Camera</h1>
+<p>There are some usefull scripting utilities in _r for camera, like easily moving the active camera to a point with animation. See the <a href="camera-scripting.html">camera scripting part</a></p>
+<h2 id="create-camera">Create Camera</h2>
+<h3 id="free-camera">Free Camera</h3>
+<h3 id="arcrotate-camera">ArcRotate Camera</h3>
+<h2 id="parameters">Parameters</h2>
+<h3 id="common-parameters">Common parameters</h3>
+<p>From <a href="http://doc.babylonjs.com/classes/3.1/camera" target="_blank">BABYLON.Camera</a></p>
+<ul>
+<li>position : Vector3</li>
+<li>upVector : Vector3</li>
+<li>orthoLeft : number</li>
+<li>orthoRight : number</li>
+<li>orthoBottom : number</li>
+<li>orthoTop : number</li>
+<li>fov : number</li>
+<li>minZ : number</li>
+<li>maxZ : number</li>
+<li>inertia : number</li>
+<li>mode : number</li>
+<li>isIntermediate : boolean</li>
+<li>layerMask : number</li>
+<li>fovMode : number</li>
+<li>cameraRigMode : number</li>
+<li>interaxialDistance : number</li>
+<li>isStereoscopicSideBySide : boolean</li>
+<li>rigCameras : Camera[]</li>
+<li>rigPostProcess : Nullable<postprocess></postprocess></li>
+</ul>
 
                                 
                                 </section>
@@ -516,8 +544,12 @@
 
             
                 
+                <a href="multi-material.html" class="navigation navigation-prev " aria-label="Previous page: Multi Material">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="patching.html" class="navigation navigation-next navigation-unique" aria-label="Next page: How to Patch ?">
+                
+                <a href="texture.html" class="navigation navigation-next " aria-label="Next page: Texture">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -528,7 +560,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"search":{"keywords":["download","npm","pep","launch"]},"title":"Downloading & Launching","level":"1.1","depth":1,"next":{"title":"How to Patch ?","level":"2.1","depth":1,"path":"patching.md","ref":"patching.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-11-14T08:53:26.038Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-14T09:45:54.936Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Camera","level":"2.6","depth":1,"next":{"title":"Texture","level":"2.7","depth":1,"path":"texture.md","ref":"texture.md","articles":[{"title":"Cube Texture","level":"2.7.1","depth":2,"path":"cube-texture.md","ref":"cube-texture.md","articles":[]},{"title":"Video Texture","level":"2.7.2","depth":2,"path":"video-texture.md","ref":"video-texture.md","articles":[]}]},"previous":{"title":"Multi Material","level":"2.5","depth":1,"path":"multi-material.md","ref":"multi-material.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"camera.md","mtime":"2017-11-20T10:50:42.116Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-14T09:45:54.936Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

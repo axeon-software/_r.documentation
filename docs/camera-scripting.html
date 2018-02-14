@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Downloading & Launching · GitBook</title>
+        <title>camera · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="patching.html" />
+    <link rel="next" href="animation-scripting.html" />
     
+    
+    <link rel="prev" href="events-scripting.html" />
     
 
     </head>
@@ -89,7 +91,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -330,7 +332,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3" data-path="camera-scripting.html">
+        <li class="chapter active" data-level="3.3" data-path="camera-scripting.html">
             
                 <a href="camera-scripting.html">
             
@@ -471,7 +473,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Downloading & Launching</a>
+        <a href="." >camera</a>
     </h1>
 </div>
 
@@ -486,9 +488,30 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="download">Download</h1>
-<h1 id="launch">Launch</h1>
-<h1 id="tutorials">Tutorials</h1>
+                                <h1 id="scripting-camera">Scripting Camera</h1>
+<h2 id="activate-camera">Activate camera</h2>
+<pre><code class="lang-js">_r.camera.activate(<span class="hljs-string">&quot;Camera.FPV&quot;</span>);
+</code></pre>
+<h2 id="go-somewhere-with-animation">Go somewhere with animation</h2>
+<pre><code class="lang-js"> _r.camera.goTo({ x : <span class="hljs-number">0</span>, y : <span class="hljs-number">0</span>, z : <span class="hljs-number">0</span>})
+</code></pre>
+<h3 id="position--rotation">Position &amp; Rotation</h3>
+<pre><code class="lang-js">_r.camera.goTo({ x : <span class="hljs-number">0</span>, y : <span class="hljs-number">0</span>, z : <span class="hljs-number">0</span>}, { x : <span class="hljs-number">0</span>, y : <span class="hljs-built_in">Math</span>.PI, z : <span class="hljs-number">0</span>})
+</code></pre>
+<h3 id="position-rotation--animation-duration">Position, Rotation &amp; animation duration</h3>
+<p>Duration in seconds </p>
+<pre><code class="lang-js"> _r.camera.goTo({ x : <span class="hljs-number">0</span>, y : <span class="hljs-number">0</span>, z : <span class="hljs-number">0</span>}, <span class="hljs-literal">null</span>, <span class="hljs-number">4</span>)
+</code></pre>
+<h3 id="animations-options">Animations options</h3>
+<pre><code class="lang-js">_r.camera.goTo({ x : <span class="hljs-number">0</span>, y : <span class="hljs-number">0</span>, z : <span class="hljs-number">0</span>}, { x : <span class="hljs-number">0</span>, y : <span class="hljs-built_in">Math</span>.PI, z : <span class="hljs-number">0</span>}, {
+    duration : <span class="hljs-number">3</span>,
+    easing : <span class="hljs-string">&quot;easeInSine&quot;</span>,
+    complete : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;animation completed&quot;</span>)
+    }
+})
+</code></pre>
+<p>For more animation options see <a href="animation-scripting.html">animations chapter</a>.</p>
 
                                 
                                 </section>
@@ -516,8 +539,12 @@
 
             
                 
+                <a href="events-scripting.html" class="navigation navigation-prev " aria-label="Previous page: events">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="patching.html" class="navigation navigation-next navigation-unique" aria-label="Next page: How to Patch ?">
+                
+                <a href="animation-scripting.html" class="navigation navigation-next " aria-label="Next page: animations">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -528,7 +555,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"search":{"keywords":["download","npm","pep","launch"]},"title":"Downloading & Launching","level":"1.1","depth":1,"next":{"title":"How to Patch ?","level":"2.1","depth":1,"path":"patching.md","ref":"patching.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-11-14T08:53:26.038Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-14T09:45:54.936Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"camera","level":"3.3","depth":1,"next":{"title":"animations","level":"3.4","depth":1,"path":"animation-scripting.md","ref":"animation-scripting.md","articles":[]},"previous":{"title":"events","level":"3.2","depth":1,"path":"events-scripting.md","ref":"events-scripting.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"camera-scripting.md","mtime":"2017-11-20T10:42:51.706Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-14T09:45:54.936Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Downloading & Launching · GitBook</title>
+        <title>Standard Material · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="patching.html" />
+    <link rel="next" href="multi-material.html" />
     
+    
+    <link rel="prev" href="selector-syntax.html" />
     
 
     </head>
@@ -89,7 +91,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -148,7 +150,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="material.html">
+        <li class="chapter active" data-level="2.4" data-path="material.html">
             
                 <a href="material.html">
             
@@ -471,7 +473,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Downloading & Launching</a>
+        <a href="." >Standard Material</a>
     </h1>
 </div>
 
@@ -486,9 +488,153 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="download">Download</h1>
-<h1 id="launch">Launch</h1>
-<h1 id="tutorials">Tutorials</h1>
+                                <h1 id="standard-material">Standard Material</h1>
+<p><a href="https://doc.babylonjs.com/features/materials" target="_blank">doc.bjs.com Materials</a></p>
+<h4 id="patch-existing-material">Patch existing material</h4>
+<pre><code class="lang-json">[
+  {
+    <span class="hljs-string">&quot;material1&quot;</span> : {
+        <span class="hljs-string">&quot;diffuseColor&quot;</span> : <span class="hljs-string">&quot;#00ff00&quot;</span>,
+        <span class="hljs-string">&quot;isFrozen&quot;</span> : <span class="hljs-literal">true</span>,
+        <span class="hljs-string">&quot;emissiveColor&quot;</span> : <span class="hljs-string">&quot;#0000ff&quot;</span>
+    }   
+  }   
+]
+</code></pre>
+<h4 id="assign-existing-material-to-a-mesh">Assign existing material to a mesh</h4>
+<pre><code class="lang-json">[
+  {
+    <span class="hljs-string">&quot;mesh2&quot;</span> : {
+        <span class="hljs-string">&quot;material&quot;</span> : <span class="hljs-string">&quot;material1&quot;</span>
+    }   
+  }   
+]
+</code></pre>
+<h4 id="create-new-material-with-materialstandard">Create new material with <em>material::standard</em></h4>
+<pre><code class="lang-json">[
+  {
+    <span class="hljs-string">&quot;mesh1&quot;</span> : {
+        <span class="hljs-string">&quot;material&quot;</span> : {
+            <span class="hljs-string">&quot;material::standard&quot;</span> : {
+                <span class="hljs-string">&quot;name&quot;</span> : <span class="hljs-string">&quot;material1&quot;</span>,
+                <span class="hljs-string">&quot;diffuseColor&quot;</span> : <span class="hljs-string">&quot;#ff0000&quot;</span>
+            }
+        }
+    }   
+  }   
+]
+</code></pre>
+<h2 id="standard-materials-parameters">Standard Materials Parameters</h2>
+<p>From <a href="http://doc.babylonjs.com/classes/3.1/Material" target="_blank">doc.bjs.com - Material</a> + <a href="http://doc.babylonjs.com/classes/3.1/StandardMaterial" target="_blank">StandardMaterial</a></p>
+<ul>
+<li>id : string </li>
+<li>name : string</li>
+<li>fogEnabled : boolean</li>
+<li>isFrozen : boolean</li>
+<li>zOffset : number</li>
+</ul>
+<h4 id="diffuse">Diffuse</h4>
+<p>As viewed under a light. </p>
+<ul>
+<li>diffuseColor : <a href="colors-vectors-patching.html#colors">color</a></li>
+<li>diffuseTexture : <a href="texture.html">texture</a></li>
+<li>useAlphaFromDiffuseTexture : boolean</li>
+</ul>
+<h4 id="specular">Specular</h4>
+<p>Highlight given to the material by a light.</p>
+<ul>
+<li>specularColor :  <a href="colors-vectors-patching.html#colors">color</a></li>
+<li>specularTexture : <a href="texture.html">texture</a></li>
+<li>specularPower : number</li>
+<li>useSpecularOverAlpha : boolean</li>
+<li>useGlossinessFromSpecularMapAlpha : boolean</li>
+</ul>
+<h4 id="emissive">Emissive</h4>
+<p>As if self lit.</p>
+<ul>
+<li>emissiveColor : <a href="colors-vectors-patching.html#colors">color</a></li>
+<li>emissiveTexture : <a href="texture.html">texture</a></li>
+<li>useEmissiveAsIllumination : boolean</li>
+<li>linkEmissiveWithDiffuse : boolean</li>
+</ul>
+<h4 id="ambient">Ambient</h4>
+<p>Lit by the environmental background lighting.</p>
+<ul>
+<li>ambientColor : <a href="colors-vectors-patching.html#colors">color</a></li>
+<li>ambientTexture : <a href="texture.html">texture</a></li>
+</ul>
+<h4 id="opacity">Opacity</h4>
+<ul>
+<li>alpha : number</li>
+<li>opacityTexture : <a href="texture.html">texture</a></li>
+<li>alphaMode <a href="https://www.babylonjs-playground.com/#1MSIXB#7" target="_blank">bjs-playground - alphaModes</a>: <ul>
+<li>BABYLON.Engine.ALPHA_COMBINE,BABYLON.Engine.ALPHA_ADD</li>
+<li>BABYLON.Engine.ALPHA_SUBTRACT</li>
+<li>BABYLON.Engine.ALPHA_MULTIPLY</li>
+<li>BABYLON.Engine.ALPHA_MAXIMIZED</li>
+</ul>
+</li>
+<li>backFaceCulling : boolean</li>
+</ul>
+<h4 id="bump">Bump</h4>
+<ul>
+<li>bumpTexture : <a href="texture.html">texture</a></li>
+</ul>
+<h4 id="reflection">Reflection</h4>
+<ul>
+<li>reflectionTexture : <a href="texture.html">texture</a></li>
+<li>useReflectionOverAlpha : boolean</li>
+</ul>
+<h4 id="refraction">Refraction</h4>
+<ul>
+<li>refractionTexture : <a href="texture.html">texture</a></li>
+<li>indexOfRefraction : number</li>
+<li>invertRefractionY : boolean</li>
+</ul>
+<h4 id="lighting">Lighting</h4>
+<ul>
+<li>lightmapTexture : <a href="texture.html">texture</a></li>
+<li>maxSimultaneousLights : number</li>
+<li>disableLighting : boolean</li>
+<li>useLightmapAsShadowmap : boolean</li>
+<li>twoSidedLighting : boolean</li>
+</ul>
+<h4 id="fresnel">Fresnel</h4>
+<p><a href="http://doc.babylonjs.com/how_to/how_to_use_fresnelparameters" target="_blank">doc.bjs.com - How to use FresnelParameters</a></p>
+<ul>
+<li>diffuseFresnelParameters : <a href="fresnelParameters.html">FresnelParameters</a></li>
+<li>opacityFresnelParameters : <a href="fresnelParameters.html">FresnelParameters</a></li>
+<li>reflectionFresnelParameters : <a href="fresnelParameters.html">FresnelParameters</a></li>
+<li>refractionFresnelParameters : <a href="fresnelParameters.html">FresnelParameters</a></li>
+<li>emissiveFresnelParameters : <a href="fresnelParameters.html">FresnelParameters</a></li>
+<li>useReflectionFresnelFromSpecular : boolean</li>
+</ul>
+<h4 id="parallax">Parallax</h4>
+<p><a href="http://doc.babylonjs.com/how_to/using_parallax_mapping" target="_blank">doc.bjs.com - How to use Parallax Mapping</a></p>
+<ul>
+<li>useParallax : boolean</li>
+<li>useParallaxOcclusion : boolean</li>
+<li>parallaxScaleBias : number</li>
+</ul>
+<h4 id="misc">Misc</h4>
+<ul>
+<li>invertNormalMapX : boolean</li>
+<li>invertNormalMapY : boolean</li>
+<li>fillMode : BABYLON.Material.TriangleFillMode | BABYLON.Material.WireFrameFillMode | BABYLON.Material.PointFillMode </li>
+<li>roughness : number</li>
+<li>useLogarithmicDepth : boolean</li>
+<li>wireframe : boolean</li>
+<li>state : string</li>
+<li>sideOrientation : BABYLON.Material.ClockWiseSideOrientation |  BABYLON.Material.CounterClockWiseSideOrientation </li>
+<li>needDepthPrePass : boolean</li>
+<li>disableDepthWrite : boolean</li>
+<li>forceDepthWrite : boolean</li>
+<li>separateCullingPass : boolean</li>
+<li>pointSize : number</li>
+<li>pointsCloud : boolean</li>
+<li>checkReadyOnEveryCall : boolean</li>
+<li>checkReadyOnlyOnce : boolean</li>
+</ul>
 
                                 
                                 </section>
@@ -516,8 +662,12 @@
 
             
                 
+                <a href="selector-syntax.html" class="navigation navigation-prev " aria-label="Previous page: Selector syntax">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="patching.html" class="navigation navigation-next navigation-unique" aria-label="Next page: How to Patch ?">
+                
+                <a href="multi-material.html" class="navigation navigation-next " aria-label="Next page: Multi Material">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -528,7 +678,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"search":{"keywords":["download","npm","pep","launch"]},"title":"Downloading & Launching","level":"1.1","depth":1,"next":{"title":"How to Patch ?","level":"2.1","depth":1,"path":"patching.md","ref":"patching.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-11-14T08:53:26.038Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-14T09:45:54.936Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Standard Material","level":"2.4","depth":1,"next":{"title":"Multi Material","level":"2.5","depth":1,"path":"multi-material.md","ref":"multi-material.md","articles":[]},"previous":{"title":"Selector syntax","level":"2.3","depth":1,"path":"selector-syntax.md","ref":"selector-syntax.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"material.md","mtime":"2018-01-10T09:16:13.268Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-14T09:45:54.936Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
