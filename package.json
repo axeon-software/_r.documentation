@@ -1,0 +1,26 @@
+{
+  "name": "runtime-documentation",
+  "version": "1.0.0",
+  "description": "BabylonJS runtime documentation",
+  "main": "docs/index.html",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "gitbook build src docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axeon-software/_r.documentation.git"
+  },
+  "keywords": [
+    "babylon",
+    "runtime"
+  ],
+  "author": "Fabien Le Vavasseur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/axeon-software/_r.documentation/issues"
+  },
+  "homepage": "https://github.com/axeon-software/_r.documentation#readme"
+}
