@@ -11,7 +11,7 @@ Environment mapping that uses the six faces of a cube as the map shape.
 [{
     "scene.cubeMaterial.000" : {
         "reflectionTexture" : {
-           "cubeTexture" : {
+           "texture::cube" : {
                 "rootUrl": "./assets/cubemap/",
                 "coordinatesMode" : "SPHERICAL_MODE"
             }
@@ -24,7 +24,7 @@ or
 [{
     "scene.cubeMaterial.000" : {
         "reflectionTexture" : function() {
-            return _r.cubeTexture({
+            return _r.texture.cube({
                 "rootUrl": "./assets/cubemap/",
                 "coordinatesMode" : "SPHERICAL_MODE"
             });
@@ -35,7 +35,7 @@ or
 
 ## By code
 ```js
-var cubeTexture = _r.cubeTexture({
+var cubeTexture = _r.texture.cube({
   "rootUrl": "./assets/cubemap/",
   "coordinatesMode" : "SPHERICAL_MODE"
 });
@@ -67,7 +67,7 @@ Ex :
 [{
     "scene.cubeMaterial.000" : {
         "reflectionTexture" : {
-           "cubeTexture" : {
+           "texture::cube" : {
                 "rootUrl": "./assets/cubemap/",
                 "coordinatesMode" : "SPHERICAL_MODE",
                 "level" : 0.5
