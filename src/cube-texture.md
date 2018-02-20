@@ -13,7 +13,7 @@ Environment mapping that uses the six faces of a cube as the map shape.
         "reflectionTexture" : {
            "texture::cube" : {
                 "rootUrl": "./assets/cubemap/",
-                "coordinatesMode" : "SPHERICAL_MODE"
+                "coordinatesMode" : "CUBIC_MODE"
             }
         }
     }
@@ -26,7 +26,7 @@ or
         "reflectionTexture" : function() {
             return _r.texture.cube({
                 "rootUrl": "./assets/cubemap/",
-                "coordinatesMode" : "SPHERICAL_MODE"
+                "coordinatesMode" : "CUBIC_MODE"
             });
         }
     }
@@ -37,7 +37,7 @@ or
 ```js
 var cubeTexture = _r.texture.cube({
   "rootUrl": "./assets/cubemap/",
-  "coordinatesMode" : "SPHERICAL_MODE"
+  "coordinatesMode" : "CUBIC_MODE"
 });
 _r("scene.cubeMaterial.000").attr("reflectionTexture", cubeTexture);
 ```
@@ -57,7 +57,7 @@ parameter | required | type | default | description
 extensions       |    | string[]                                | | The cube texture extensions. The defaults extensions are : [_px.jpg, _py.jpg, _pz.jpg, _nx.jpg, _ny.jpg, _nz.jpg]
 files            |    | string[]                                | | 
 onLoad           |    | () => void                              | | Callback
-coordinatesMode  |    | number | BABYLON.Texture.EXPLICIT_MODE  | ex : BABYLON.Texture.SPHERICAL_MODE
+coordinatesMode  |    | number | BABYLON.Texture.EXPLICIT_MODE  | ex : BABYLON.Texture.CUBIC_MODE
 
 ### Any other parameters...
 ...will be merged into the texture.
@@ -69,7 +69,7 @@ Ex :
         "reflectionTexture" : {
            "texture::cube" : {
                 "rootUrl": "./assets/cubemap/",
-                "coordinatesMode" : "SPHERICAL_MODE",
+                "coordinatesMode" : "CUBIC_MODE",
                 "level" : 0.5
             }
         }
