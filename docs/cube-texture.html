@@ -7,7 +7,7 @@
         <title>Cube Texture · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="generator" content="GitBook 3.2.3">
         
         
         
@@ -488,8 +488,159 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="cube-texture">Cube Texture</h1>
-<h1 id="hdr-cube-texture">HDR Cube Texture</h1>
+                                <h1 id="cubetexture">CubeTexture</h1>
+<p>Environment mapping that uses the six faces of a cube as the map shape.</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://doc.babylonjs.com/classes/3.1/cubetexture" target="_blank">https://doc.babylonjs.com/classes/3.1/cubetexture</a></li>
+</ul>
+<h2 id="required">Required</h2>
+<p>You need to already have cubemaps files, named with these suffixes: <strong>_px</strong>, <strong>_py</strong>, <strong>_pz</strong>, <strong>_nx</strong>, <strong>_ny</strong>, <strong>_nz</strong> (with p = positive and n = negative, as you can guess).</p>
+<p>There is two ways to organize your cubemaps files, and so the naming:</p>
+<ul>
+<li>in a dedicated folder per cubemaps:</li>
+</ul>
+<p><img src="img/cubetexture-folder01.png" alt="cubetexture-folder01"></p>
+<blockquote>
+<p>here the name is the folder name</p>
+</blockquote>
+<ul>
+<li>in a global folder:</li>
+</ul>
+<p><img src="img/cubetexture-folder02.png" alt="cubetexture-folder02"></p>
+<blockquote>
+<p>here the name is on the files</p>
+</blockquote>
+<h2 id="in-patch">In patch</h2>
+<ul>
+<li>using folder naming:<pre><code class="lang-js">[{
+  <span class="hljs-string">&quot;scene.cubeMaterial.000&quot;</span> : {
+      <span class="hljs-string">&quot;reflectionTexture&quot;</span> : {
+         <span class="hljs-string">&quot;texture::cube&quot;</span> : {
+              <span class="hljs-string">&quot;rootUrl&quot;</span>: <span class="hljs-string">&quot;./assets/cubemaps/default/&quot;</span>,
+              <span class="hljs-string">&quot;coordinatesMode&quot;</span> : <span class="hljs-string">&quot;CUBIC_MODE&quot;</span>
+          }
+      }
+  }
+}]
+</code></pre>
+</li>
+<li>using files naming:<pre><code class="lang-js">[{
+  <span class="hljs-string">&quot;scene.cubeMaterial.000&quot;</span> : {
+      <span class="hljs-string">&quot;reflectionTexture&quot;</span> : {
+         <span class="hljs-string">&quot;texture::cube&quot;</span> : {
+              <span class="hljs-string">&quot;rootUrl&quot;</span>: <span class="hljs-string">&quot;./assets/cubemaps/default&quot;</span>,
+              <span class="hljs-string">&quot;coordinatesMode&quot;</span> : <span class="hljs-string">&quot;CUBIC_MODE&quot;</span>
+          }
+      }
+  }
+}]
+</code></pre>
+<blockquote>
+<p>notice that only the / char make the difference between folder or file naming way</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="by-code">By code</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> cubeTexture = _r.texture.cube({
+  <span class="hljs-string">&quot;rootUrl&quot;</span>: <span class="hljs-string">&quot;./assets/cubemaps/default/&quot;</span>,
+  <span class="hljs-string">&quot;coordinatesMode&quot;</span> : <span class="hljs-string">&quot;CUBIC_MODE&quot;</span>
+});
+_r(<span class="hljs-string">&quot;scene.cubeMaterial.000&quot;</span>).attr(<span class="hljs-string">&quot;reflectionTexture&quot;</span>, cubeTexture);
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<h3 id="designers">Designers</h3>
+<table>
+<thead>
+<tr>
+<th>parameter</th>
+<th>required</th>
+<th>type</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rootUrl</td>
+<td>x</td>
+<td>string</td>
+<td></td>
+<td>Link of the texture</td>
+</tr>
+<tr>
+<td>noMipmap</td>
+<td></td>
+<td>boolean</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>coordinatesMode</td>
+<td></td>
+<td>string</td>
+<td>&apos;EXPLICIT_MODE&apos;</td>
+<td>&apos;EXPLICIT_MODE&apos;, SPHERICAL_MODE&apos;, &apos;PLANAR_MODE&apos;, &apos;CUBIC_MODE&apos;, &apos;PROJECTION_MODE&apos;, &apos;SKYBOX_MODE&apos;, &apos;INVCUBIC_MODE&apos;, &apos;EQUIRECTANGULAR_MODE&apos;, &apos;FIXED_EQUIRECTANGULAR_MODE&apos;   </td>
+</tr>
+</tbody>
+</table>
+<h3 id="misc">Misc.</h3>
+<table>
+<thead>
+<tr>
+<th>parameter</th>
+<th>required</th>
+<th>type</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>extensions</td>
+<td></td>
+<td>string[]</td>
+<td></td>
+<td>The cube texture extensions. The defaults extensions are : [_px.jpg, _py.jpg, _pz.jpg, _nx.jpg, _ny.jpg, _nz.jpg]</td>
+</tr>
+<tr>
+<td>files</td>
+<td></td>
+<td>string[]</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>onLoad</td>
+<td></td>
+<td>() =&gt; void</td>
+<td></td>
+<td>Callback</td>
+</tr>
+<tr>
+<td>coordinatesMode</td>
+<td></td>
+<td>number</td>
+<td>BABYLON.Texture.EXPLICIT_MODE</td>
+<td>ex : BABYLON.Texture.CUBIC_MODE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="any-other-parameters">Any other parameters...</h3>
+<p>...will be merged into the texture.</p>
+<p>Ex :</p>
+<pre><code class="lang-json">[{
+    <span class="hljs-string">&quot;scene.cubeMaterial.000&quot;</span> : {
+        <span class="hljs-string">&quot;reflectionTexture&quot;</span> : {
+           <span class="hljs-string">&quot;texture::cube&quot;</span> : {
+                <span class="hljs-string">&quot;rootUrl&quot;</span>: <span class="hljs-string">&quot;./assets/cubemaps/default&quot;</span>,
+                <span class="hljs-string">&quot;coordinatesMode&quot;</span> : <span class="hljs-string">&quot;CUBIC_MODE&quot;</span>,
+                <span class="hljs-string">&quot;level&quot;</span> : <span class="hljs-number">0.5</span>
+            }
+        }
+    }
+}]
+</code></pre>
 
                                 
                                 </section>
@@ -533,7 +684,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Cube Texture","level":"2.7.1","depth":2,"next":{"title":"Video Texture","level":"2.7.2","depth":2,"path":"video-texture.md","ref":"video-texture.md","articles":[]},"previous":{"title":"Texture","level":"2.7","depth":1,"path":"texture.md","ref":"texture.md","articles":[{"title":"Cube Texture","level":"2.7.1","depth":2,"path":"cube-texture.md","ref":"cube-texture.md","articles":[]},{"title":"Video Texture","level":"2.7.2","depth":2,"path":"video-texture.md","ref":"video-texture.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cube-texture.md","mtime":"2017-11-20T19:10:01.520Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-14T09:45:54.936Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Cube Texture","level":"2.7.1","depth":2,"next":{"title":"Video Texture","level":"2.7.2","depth":2,"path":"video-texture.md","ref":"video-texture.md","articles":[]},"previous":{"title":"Texture","level":"2.7","depth":1,"path":"texture.md","ref":"texture.md","articles":[{"title":"Cube Texture","level":"2.7.1","depth":2,"path":"cube-texture.md","ref":"cube-texture.md","articles":[]},{"title":"Video Texture","level":"2.7.2","depth":2,"path":"video-texture.md","ref":"video-texture.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cube-texture.md","mtime":"2018-02-20T08:58:39.789Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-02-20T09:02:00.977Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
