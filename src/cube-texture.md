@@ -5,38 +5,56 @@ Environment mapping that uses the six faces of a cube as the map shape.
 ## Resources
 * [https://doc.babylonjs.com/classes/3.1/cubetexture](https://doc.babylonjs.com/classes/3.1/cubetexture)
 
+## Required
+
+You need to already have cubemaps files, named with these suffixes: **_px**, **_py**, **_pz**, **_nx**, **_ny**, **_nz** (with p = positive and n = negative, as you can guess).
+
+There is two ways to organize your cubemaps files, and so the naming:
+
+-   in a dedicated folder per cubemaps:
+
+![cubetexture-folder01](img/cubetexture-folder01.png)
+> here the name is the folder name
+
+-   in a global folder:
+
+![cubetexture-folder02](img/cubetexture-folder02.png)
+> here the name is on the files
+
 ## In patch
 
+- using folder naming:
 ```js
 [{
     "scene.cubeMaterial.000" : {
         "reflectionTexture" : {
            "texture::cube" : {
-                "rootUrl": "./assets/cubemap/",
+                "rootUrl": "./assets/cubemaps/default/",
                 "coordinatesMode" : "CUBIC_MODE"
             }
         }
     }
 }]
 ```
-or
+- using files naming:
 ```js
 [{
     "scene.cubeMaterial.000" : {
-        "reflectionTexture" : function() {
-            return _r.texture.cube({
-                "rootUrl": "./assets/cubemap/",
+        "reflectionTexture" : {
+           "texture::cube" : {
+                "rootUrl": "./assets/cubemaps/default",
                 "coordinatesMode" : "CUBIC_MODE"
-            });
+            }
         }
     }
- }]
+}]
 ```
+> notice that only the / char make the difference between folder or file naming way
 
 ## By code
 ```js
 var cubeTexture = _r.texture.cube({
-  "rootUrl": "./assets/cubemap/",
+  "rootUrl": "./assets/cubemaps/default/",
   "coordinatesMode" : "CUBIC_MODE"
 });
 _r("scene.cubeMaterial.000").attr("reflectionTexture", cubeTexture);
@@ -68,7 +86,7 @@ Ex :
     "scene.cubeMaterial.000" : {
         "reflectionTexture" : {
            "texture::cube" : {
-                "rootUrl": "./assets/cubemap/",
+                "rootUrl": "./assets/cubemaps/default",
                 "coordinatesMode" : "CUBIC_MODE",
                 "level" : 0.5
             }
